@@ -728,6 +728,350 @@ h4 { font-size: 1.5rem; }
 }
 
 /* ========================================
+   Problem Section
+   ======================================== */
+
+.problem-section {
+    padding: var(--spacing-xl) 0;
+    background: var(--bg-white);
+}
+
+.problem-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-lg);
+}
+
+.problem-card {
+    padding: var(--spacing-lg);
+    background: var(--bg-light);
+    border-radius: 15px;
+    border-left: 4px solid var(--accent-color);
+    transition: var(--transition-base);
+}
+
+.problem-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    border-left-color: var(--primary-color);
+}
+
+.problem-icon {
+    font-size: 3rem;
+    margin-bottom: var(--spacing-sm);
+    color: var(--primary-color);
+}
+
+.problem-icon i {
+    font-size: 3rem;
+    color: var(--primary-color);
+}
+
+.problem-card h3 {
+    color: var(--text-dark);
+    margin-bottom: var(--spacing-sm);
+}
+
+.problem-card p {
+    color: var(--text-medium);
+    line-height: 1.7;
+}
+
+/* ========================================
+   Solution Section
+   ======================================== */
+
+.solution-section {
+    padding: var(--spacing-xl) 0;
+    background: var(--bg-light);
+}
+
+.solution-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-lg);
+}
+
+.solution-card {
+    padding: var(--spacing-lg);
+    background: var(--bg-white);
+    border-radius: 15px;
+    transition: var(--transition-base);
+    position: relative;
+}
+
+.solution-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+}
+
+.solution-card.featured {
+    border: 2px solid var(--primary-color);
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.02), var(--bg-white));
+}
+
+.solution-badge {
+    position: absolute;
+    top: -12px;
+    right: var(--spacing-md);
+    background: var(--primary-color);
+    color: var(--bg-white);
+    padding: 0.5rem 1.5rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.solution-icon {
+    font-size: 3.5rem;
+    margin-bottom: var(--spacing-sm);
+    color: var(--primary-color);
+}
+
+.solution-icon i {
+    font-size: 3.5rem;
+    color: var(--primary-color);
+}
+
+.solution-card h3 {
+    color: var(--text-dark);
+    margin-bottom: var(--spacing-sm);
+}
+
+.solution-card > p {
+    color: var(--text-medium);
+    line-height: 1.7;
+    margin-bottom: var(--spacing-md);
+}
+
+.solution-features {
+    list-style: none;
+    padding: 0;
+    margin-top: var(--spacing-md);
+}
+
+.solution-features li {
+    padding: 0.5rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+    color: var(--text-medium);
+}
+
+.solution-features li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+.solution-cta {
+    margin-top: var(--spacing-xl);
+    padding: var(--spacing-lg);
+    background: var(--bg-medium);
+    border-radius: 15px;
+    text-align: center;
+}
+
+.solution-cta h3 {
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-sm);
+}
+
+.solution-cta p {
+    color: var(--text-medium);
+    line-height: 1.7;
+    margin-bottom: var(--spacing-md);
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ========================================
+   Credentials & Philosophy Section
+   ======================================== */
+
+.credentials-philosophy-section {
+    padding: var(--spacing-xl) 0;
+    background: var(--bg-light);
+}
+
+.credentials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-lg);
+}
+
+.credential-card {
+    padding: var(--spacing-md);
+    background: var(--bg-white);
+    border-radius: 10px;
+    text-align: center;
+    transition: var(--transition-base);
+}
+
+.credential-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+.credential-icon {
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-xs);
+    color: var(--primary-color);
+}
+
+.credential-icon i {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+}
+
+.credential-card h3 {
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-xs);
+    font-size: 1.3rem;
+}
+
+.credential-card p {
+    color: var(--text-medium);
+    line-height: 1.7;
+}
+
+.philosophy-statement {
+    margin-top: var(--spacing-xl);
+    padding: var(--spacing-xl);
+    background: var(--bg-white);
+    border-radius: 20px;
+}
+
+.philosophy-content {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.philosophy-content h3 {
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-md);
+}
+
+.philosophy-content blockquote {
+    font-family: var(--font-secondary);
+    font-size: 1.5rem;
+    line-height: 1.6;
+    color: var(--text-dark);
+    font-style: italic;
+    margin-bottom: var(--spacing-sm);
+}
+
+.philosophy-content cite {
+    font-size: 1.1rem;
+    color: var(--text-medium);
+    font-style: normal;
+    display: block;
+    margin-bottom: var(--spacing-md);
+}
+
+.philosophy-text {
+    color: var(--text-medium);
+    line-height: 1.8;
+    text-align: left;
+}
+
+.why-choose-us {
+    margin-top: var(--spacing-xl);
+}
+
+.why-choose-us h3 {
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-lg);
+}
+
+.differentiators-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-md);
+}
+
+.differentiator-item {
+    padding: var(--spacing-md);
+    background: var(--bg-white);
+    border-radius: 10px;
+    text-align: center;
+}
+
+.differentiator-item i {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-xs);
+}
+
+.differentiator-item h4 {
+    color: var(--text-dark);
+    margin-bottom: var(--spacing-xs);
+}
+
+.differentiator-item p {
+    color: var(--text-medium);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* ========================================
+   FAQs Section
+   ======================================== */
+
+.faqs-section {
+    padding: var(--spacing-xl) 0;
+    background: var(--bg-white);
+}
+
+.faqs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-lg);
+}
+
+.faq-card {
+    padding: var(--spacing-lg);
+    background: var(--bg-light);
+    border-radius: 15px;
+    transition: var(--transition-base);
+}
+
+.faq-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+.faq-card h3 {
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-sm);
+    font-size: 1.2rem;
+}
+
+.faq-card p {
+    color: var(--text-medium);
+    line-height: 1.7;
+}
+
+.faq-cta {
+    text-align: center;
+    margin-top: var(--spacing-xl);
+}
+
+.faq-cta p {
+    font-size: 1.1rem;
+    color: var(--text-medium);
+    margin-bottom: var(--spacing-sm);
+}
+
+/* ========================================
    Footer
    ======================================== */
 
@@ -781,6 +1125,26 @@ h4 { font-size: 1.5rem; }
     }
 
     .programs-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .problem-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .solution-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .credentials-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .differentiators-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .faqs-grid {
         grid-template-columns: 1fr;
     }
 }
