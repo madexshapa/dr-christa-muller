@@ -251,4 +251,49 @@ document.addEventListener('keydown', function(e) {
     }
 });
 
+// Blog Article Filters
+document.addEventListener('DOMContentLoaded', function() {
+    const filterChips = document.querySelectorAll('.filter-chip');
+    const articleCards = document.querySelectorAll('.article-card');
+
+    if (filterChips.length > 0 && articleCards.length > 0) {
+        filterChips.forEach(chip => {
+            chip.addEventListener('click', function() {
+                // Remove active class from all chips
+                filterChips.forEach(c => c.classList.remove('active'));
+
+                // Add active class to clicked chip
+                this.classList.add('active');
+
+                // Get selected category
+                const selectedCategory = this.getAttribute('data-category').toLowerCase();
+
+                // Filter articles
+                articleCards.forEach(card => {
+                    const articleCategory = card.querySelector('.article-category');
+
+                    if (articleCategory) {
+                        const category = articleCategory.textContent.toLowerCase();
+
+                        if (selectedCategory === 'all' || category === selectedCategory) {
+                            card.style.display = 'block';
+                            // Re-apply fade-in animation
+                            setTimeout(() => {
+                                card.style.opacity = '1';
+                                card.style.transform = 'translateY(0)';
+                            }, 10);
+                        } else {
+                            card.style.opacity = '0';
+                            card.style.transform = 'translateY(30px)';
+                            setTimeout(() => {
+                                card.style.display = 'none';
+                            }, 300);
+                        }
+                    }
+                });
+            });
+        });
+    }
+});
+
 console.log('Dr. Christa Müller Website - Initialized');
