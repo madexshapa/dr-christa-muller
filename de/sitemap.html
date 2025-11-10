@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Wireframe-Sitemap für Dr. Christa Müllers Praxis für Wechseljahre-Betreuung.">
+    <title>Sitemap - Dr. Christa Müller</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: #e8e8e8;
+            padding: 0;
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .sitemap-container {
+            max-width: 1600px;
+            margin: 0 auto;
+            background: white;
+        }
+
+        .sitemap-header {
+            text-align: center;
+            padding: 2rem;
+            background: white;
+            border-bottom: 2px solid #000;
+        }
+
+        .sitemap-header h1 {
+            font-size: 1.5rem;
+            margin: 0 0 0.5rem 0;
+        }
+
+        .sitemap-header p {
+            color: #666;
+            margin: 0;
+            font-size: 0.9rem;
+        }
+
+        /* Tab Navigation */
+        .tab-navigation {
+            display: flex;
+            border-bottom: 2px solid #000;
+            background: white;
+        }
+
+        .tab-btn {
+            flex: 1;
+            padding: 1rem 2rem;
+            background: #f5f5f5;
+            border: none;
+            border-right: 2px solid #000;
+            border-bottom: 2px solid #000;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            font-family: 'Inter', sans-serif;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .tab-btn:last-child {
+            border-right: none;
+        }
+
+        .tab-btn:hover {
+            background: #e8e8e8;
+        }
+
+        .tab-btn.active {
+            background: #000;
+            color: white;
+            border-bottom: 2px solid #000;
+        }
+
+        .tab-btn::before {
+            content: '📄';
+        }
+
+        /* Tab Content */
+        .tab-content {
+            display: none;
+            padding: 2rem;
+            background: #f5f5f5;
+            min-height: 70vh;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .page-sections {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 1.5rem;
+        }
+
+        /* Section Card */
+        .section-card {
+            background: white;
+            border: 2px solid #000;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 4px 4px 0 rgba(0,0,0,0.1);
+        }
+
+        .section-card h3 {
+            margin: 0 0 1rem 0;
+            font-size: 1.1rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid #000;
+        }
+
+        .section-card h4 {
+            margin: 1rem 0 0.5rem 0;
+            font-size: 0.95rem;
+            color: #d35400;
+        }
+
+        .section-card p {
+            margin: 0.5rem 0;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            color: #333;
+        }
+
+        .section-card ul {
+            margin: 0.5rem 0;
+            padding-left: 1.25rem;
+        }
+
+        .section-card li {
+            font-size: 0.85rem;
+            line-height: 1.6;
+            margin: 0.25rem 0;
+        }
+
+        .section-label {
+            display: inline-block;
+            background: #000;
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .content-note {
+            background: #fff9e6;
+            border-left: 3px solid #d35400;
+            padding: 0.75rem;
+            margin: 0.75rem 0;
+            font-size: 0.85rem;
+        }
+
+        .back-link {
+            text-align: center;
+            padding: 2rem;
+            background: white;
+            border-top: 2px solid #000;
+        }
+
+        .back-link a {
+            color: #000;
+            text-decoration: none;
+            padding: 0.75rem 1.5rem;
+            border: 2px solid #000;
+            border-radius: 8px;
+            display: inline-block;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .back-link a:hover {
+            background: #000;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .tab-btn {
+                padding: 0.75rem 1rem;
+                font-size: 0.85rem;
+            }
+
+            .page-sections {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="sitemap-container">
+        <div class="sitemap-header">
+            <h1>Website Sitemap & Komponenten-Übersicht</h1>
+            <p>Dr. Christa Müller — Gynäkologie & Wechseljahre-Betreuung</p>
+        </div>
+
+        <!-- Tab Navigation -->
+        <div class="tab-navigation">
+            <button class="tab-btn active" onclick="openTab(event, 'home')">Startseite</button>
+            <button class="tab-btn" onclick="openTab(event, 'services')">Leistungen</button>
+            <button class="tab-btn" onclick="openTab(event, 'programs')">Programme</button>
+            <button class="tab-btn" onclick="openTab(event, 'about')">Über mich</button>
+            <button class="tab-btn" onclick="openTab(event, 'blog')">Blog</button>
+            <button class="tab-btn" onclick="openTab(event, 'contact')">Kontakt</button>
+        </div>
+
+        <!-- Home Tab -->
+        <div id="home" class="tab-content active">
+            <div class="page-sections">
+                <!-- Navigation -->
+                <div class="section-card">
+                    <span class="section-label">GLOBAL</span>
+                    <h3>Navigation</h3>
+                    <p><strong>Logo:</strong> Dr. Müller | Gynäkologie & Menopause</p>
+                    <h4>Navigationslinks:</h4>
+                    <p>Startseite | Leistungen | Programme | Über mich | Blog | Kontakt</p>
+                    <h4>CTA-Button:</h4>
+                    <p>Jetzt Termin buchen (primärer Button)</p>
+                    <h4>Funktionen:</h4>
+                    <ul>
+                        <li>Responsive mobiles Menü</li>
+                        <li>Fixierte Navigation beim Scrollen</li>
+                    </ul>
+                </div>
+
+                <!-- Hero Section -->
+                <div class="section-card">
+                    <span class="section-label">HERO</span>
+                    <h3>Hero-Bereich</h3>
+                    <h4>Überschrift:</h4>
+                    <p>"Sich selbst in den Wechseljahren neu entdecken"</p>
+                    <h4>Unterüberschrift:</h4>
+                    <p>Spezialisierte Betreuung, die medizinische Expertise mit ganzheitlicher Unterstützung verbindet – von Frau zu Frau</p>
+                    <h4>Beschreibung:</h4>
+                    <p>Mehr als Symptomlinderung – Betreuung, die die körperlichen, emotionalen und existenziellen Ebenen der Wechseljahre versteht.</p>
+                    <h4>CTAs:</h4>
+                    <ul>
+                        <li>Jetzt Termin buchen (primär)</li>
+                        <li>Vom Symptom zur Lösung (sekundär)</li>
+                    </ul>
+                    <div class="content-note">Hintergrundbild mit Overlay für Textlesbarkeit</div>
+                </div>
+
+                <!-- Problem Section -->
+                <div class="section-card">
+                    <span class="section-label">BEREICH</span>
+                    <h3>Problem-Bereich — "Hauptherausforderungen"</h3>
+                    <h4>Titel:</h4>
+                    <p>"Die größten Herausforderungen in den Wechseljahren"</p>
+                    <h4>3 Problem-Karten:</h4>
+                    <ul>
+                        <li>Körperliche Symptome, die Ihr Leben beeinträchtigen</li>
+                        <li>Emotionale & psychische Belastungen</li>
+                        <li>Mangel an Verständnis & Unterstützung</li>
+                    </ul>
+                    <div class="content-note">Jede Karte hat Icon, Überschrift und Beschreibung</div>
+                </div>
+
+                <!-- Solution Section -->
+                <div class="section-card">
+                    <span class="section-label">BEREICH</span>
+                    <h3>Lösungs-Bereich — "So lösen wir"</h3>
+                    <h4>Titel:</h4>
+                    <p>"So lösen wir diese Herausforderungen"</p>
+                    <h4>3 Lösungs-Karten:</h4>
+                    <ul>
+                        <li>Umfassende medizinische Betreuung</li>
+                        <li>Ganzheitliche Unterstützung</li>
+                        <li>Individuelle, wegbegleitende Betreuung</li>
+                    </ul>
+                    <h4>CTA-Box:</h4>
+                    <p>"Was macht Dr. Müllers Ansatz anders?" → Mehr über unseren Ansatz erfahren</p>
+                </div>
+
+                <!-- Services Overview -->
+                <div class="section-card">
+                    <span class="section-label">BEREICH</span>
+                    <h3>Leistungsübersicht</h3>
+                    <h4>Titel:</h4>
+                    <p>"Umfassende Betreuung für Ihr Wohlbefinden"</p>
+                    <h4>6 Leistungs-Karten:</h4>
+                    <ul>
+                        <li>Hormontherapie</li>
+                        <li>Psychologische Begleitung</li>
+                        <li>Ernährungsberatung</li>
+                        <li>Infusionstherapie</li>
+                        <li>Mikrobiom-Diagnostik</li>
+                        <li>Gewichtsmanagement</li>
+                    </ul>
+                    <h4>CTA:</h4>
+                    <p>Alle Leistungen entdecken</p>
+                </div>
+
+                <!-- Programs Preview -->
+                <div class="section-card">
+                    <span class="section-label">BEREICH</span>
+                    <h3>Programm-Vorschau</h3>
+                    <h4>Titel:</h4>
+                    <p>"Individuelle Programme für Ihre Reise"</p>
+                    <h4>3 Programm-Karten:</h4>
+                    <ul>
+                        <li>Programm 1: Aufatmen — Schnelle, gezielte Termine (3 Termine)</li>
+                        <li>Programm 2: Strahlend... Ihr starkes Morgen — Medizinische Behandlung + emotionale Unterstützung (6-8 Termine, AM BELIEBTESTEN)</li>
+                        <li>Programm 3: Tiefgreifende Transformation — Sechsmonatige Reise für ganzheitliche Heilung (9+ Termine über 6 Monate)</li>
+                    </ul>
+                    <div class="content-note">Hinweis: Programm-Taglines entfernt, jetzt mit Beschreibungen</div>
+                    <h4>Bottom-CTA:</h4>
+                    <p>"Nicht sicher, welches Programm das richtige für Sie ist?" → Wir entscheiden gemeinsam</p>
+                </div>
+
+                <!-- Approach Section -->
+                <div class="section-card">
+                    <span class="section-label">BEREICH</span>
+                    <h3>Ansatz — "Was das für Sie bedeutet"</h3>
+                    <h4>6 Vorteilskarten:</h4>
+                    <ul>
+                        <li>Keine Hetze mehr</li>
+                        <li>Dies kann Ihr bestes Kapitel werden</li>
+                        <li>Betreuung, die zu Ihrem Leben passt</li>
+                        <li>Die echte Sie behandeln</li>
+                        <li>Bestimmen Sie über Ihre Behandlung</li>
+                        <li>Erfahrung, der Sie vertrauen können</li>
+                    </ul>
+                    <div class="content-note">Grid-Layout, kurze prägnante Überschriften mit knappen Beschreibungen</div>
+                </div>
+
+                <!-- Philosophy Quote -->
+                <div class="section-card">
+                    <span class="section-label">BEREICH</span>
+                    <h3>Philosophie-Statement</h3>
+                    <h4>Zitat:</h4>
+                    <p>"Sie sind nicht 'schwierig' oder 'zu sensibel'. Sie durchleben etwas Tiefgreifendes, das Zeit und Verständnis verdient."</p>
+                    <p><em>- Dr. Christa Müller</em></p>
+                    <div class="content-note">Großes Blockquote-Format, zentriert</div>
+                </div>
+
+                <!-- Blog Preview -->
+                <div class="section-card">
+                    <span class="section-label">BEREICH</span>
+                    <h3>Blog-Vorschau</h3>
+                    <h4>Titel:</h4>
+                    <p>"Wissenswertes über die Wechseljahre"</p>
+                    <h4>3 Blog-Karten:</h4>
+                    <ul>
+                        <li>Mythen und Fakten über die Wechseljahre</li>
+                        <li>Bioidentische Hormone erklärt</li>
+                        <li>Ernährung für hormonelles Gleichgewicht</li>
+                    </ul>
+                    <h4>CTA:</h4>
+                    <p>Alle Beiträge → Blog-Seite</p>
+                </div>
+
+                <!-- Final CTA -->
+                <div class="section-card">
+                    <span class="section-label">CTA</span>
+                    <h3>Abschluss-CTA-Bereich</h3>
+                    <h4>Überschrift:</h4>
+                    <p>"Bereit für den nächsten Schritt?"</p>
+                    <h4>Subtext:</h4>
+                    <p>Lassen Sie uns gemeinsam Energie, Klarheit und Selbstvertrauen zurückbringen.</p>
+                    <h4>Buttons:</h4>
+                    <ul>
+                        <li>Jetzt Termin buchen (primär groß)</li>
+                        <li>Programme entdecken (sekundär groß)</li>
+                    </ul>
+                </div>
+
+                <!-- Footer -->
+                <div class="section-card">
+                    <span class="section-label">GLOBAL</span>
+                    <h3>Footer</h3>
+                    <h4>4 Spalten:</h4>
+                    <ul>
+                        <li>Praxisinfo (Name, Standort, Tagline)</li>
+                        <li>Schnellzugriff (Leistungen, Programme, Über mich, Blog)</li>
+                        <li>Kontakt (Jetzt Termin buchen, Telefon, E-Mail)</li>
+                        <li>Rechtliches (Datenschutz, Impressum, Nutzungsbedingungen)</li>
+                    </ul>
+                    <h4>Copyright:</h4>
+                    <p>© 2025 Dr. Christa Müller. Alle Rechte vorbehalten.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Services Tab -->
+        <div id="services" class="tab-content">
+            <div class="page-sections">
+                <!-- Page Header -->
+                <div class="section-card">
+                    <span class="section-label">HEADER</span>
+                    <h3>Seiten-Header</h3>
+                    <h4>Titel:</h4>
+                    <p>"Unsere Leistungen"</p>
+                    <h4>Untertitel:</h4>
+                    <p>Jede Frau hat ihre eigene Geschichte. Deshalb biete ich individuelle Behandlungsprogramme an, die nicht nur Ihre Symptome, sondern Sie als ganzen Menschen ansprechen.</p>
+                </div>
+
+                <!-- Core Services -->
+                <div class="section-card">
+                    <span class="section-label">BEREICH</span>
+                    <h3>Spezialisierte Wechseljahre-Betreuung</h3>
+                    <h4>7 Leistungs-Karten (detailliert):</h4>
+                    <ul>
+                        <li>Bioidentische Hormontherapie</li>
+                        <li>Psychologisch-Philosophische Beratung</li>
+                        <li>Ernährungsberatung</li>
+                        <li>Infusionstherapie</li>
+                        <li>Mikrobiom-Diagnostik</li>
+                        <li>Gewichtsmanagement</li>
+                        <li>Hormonbasierte Kosmetik</li>
+                    </ul>
+                    <div class="content-note">Jede Karte enthält Icon, Titel, Highlight, Beschreibung und 4 Aufzählungspunkte</div>
+                </div>
+
+                <!-- General Services -->
+                <div class="section-card">
+                    <span class="section-label">BEREICH</span>
+                    <h3>Umfassende gynäkologische Betreuung</h3>
+                    <h4>6 Leistungspunkte:</h4>
+                    <ul>
+                        <li>Vorsorge</li>
+                        <li>Verhütungsberatung</li>
+                        <li>Schwangerschaftsbetreuung</li>
+                        <li>Menstruationsbeschwerden</li>
+                        <li>Gynäkologische Untersuchungen</li>
+                        <li>Gesundheitsgespräche</li>
+                    </ul>
+                </div>
+
+                <!-- Approach -->
+                <div class="section-card">
+                    <span class="section-label">BEREICH</span>
+                    <h3>Mein Betreuungsansatz</h3>
+                    <h4>4 Schritte:</h4>
+                    <ul>
+                        <li>01 - Zuhören & Verstehen</li>
+                        <li>02 - Umfassende Untersuchung</li>
+                        <li>03 - Gemeinsame Planung</li>
+                        <li>04 - Kontinuierliche Begleitung</li>
+                    </ul>
+                </div>
+
+                <!-- Insurance -->
+                <div class="section-card">
+                    <span class="section-label">BEREICH</span>
+                    <h3>Kosten & Versicherung verstehen</h3>
+                    <h4>3 Info-Boxen:</h4>
+                    <ul>
+                        <li>Private Krankenversicherung (75-90% Erstattung)</li>
+                        <li>Laborkosten (separat abgerechnet)</li>
+                        <li>Online-Sitzungen & Programme (PayPal-Zahlung)</li>
+                    </ul>
+                </div>
+
+                <!-- FAQ -->
+                <div class="section-card">
+                    <span class="section-label">BEREICH</span>
+                    <h3>Häufig gestellte Fragen</h3>
+                    <h4>6 FAQ-Punkte:</h4>
+                    <ul>
+                        <li>Benötige ich eine Überweisung?</li>
+                        <li>Wie lange dauern die Termine?</li>
+                        <li>Was soll ich mitbringen?</li>
+                        <li>Akzeptieren Sie private Versicherung?</li>
+                        <li>Kann ich Online-Beratungen buchen?</li>
+                        <li>Welche Sprachen sprechen Sie?</li>
+                    </ul>
+                    <h4>CTA:</h4>
+                    <p>Haben Sie noch Fragen? → Kontakt aufnehmen</p>
+                </div>
+
+                <!-- CTA -->
+                <div class="section-card">
+                    <span class="section-label">CTA</span>
+                    <h3>CTA-Bereich</h3>
+                    <h4>Überschrift:</h4>
+                    <p>"Bereit, Ihre Reise zu beginnen?"</p>
+                    <h4>Buttons:</h4>
+                    <ul>
+                        <li>Programme entdecken</li>
+                        <li>Jetzt Termin buchen</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Programs Tab -->
+        <div id="programs" class="tab-content">
+            <div class="page-sections">
+                <!-- Page Header -->
+                <div class="section-card">
+                    <span class="section-label">HEADER</span>
+                    <h3>Seiten-Header</h3>
+                    <h4>Titel:</h4>
+                    <p>"Wechseljahre-Betreuungsprogramme"</p>
+                    <h4>Untertitel:</h4>
+                    <p>Die Erfahrung jeder Frau ist einzigartig. Drei verschiedene Programmstufen, die Sie genau dort abholen, wo Sie sind.</p>
+                </div>
+
+                <!-- Program 1 -->
+                <div class="section-card">
+                    <span class="section-label">PROGRAMM</span>
+                    <h3>Programm 1: Aufatmen</h3>
+                    <h4>Tagline:</h4>
+                    <p>"Es gibt Hoffnung" — Sofortige Linderung bei körperlichen Symptomen</p>
+                    <h4>Dauer:</h4>
+                    <p>3 Termine über 6-8 Wochen</p>
+                    <h4>Umfasst:</h4>
+                    <ul>
+                        <li>Erstgespräch (60-90 Min.)</li>
+                        <li>Diagnostische Tests & Hormontherapie</li>
+                        <li>Nachkontrolle</li>
+                    </ul>
+                    <h4>Versicherung:</h4>
+                    <p>~90% Erstattung durch private Versicherung</p>
+                </div>
+
+                <!-- Program 2 -->
+                <div class="section-card">
+                    <span class="section-label">PROGRAMM ⭐</span>
+                    <h3>Programm 2: Strahlend... Ihr starkes Morgen</h3>
+                    <h4>Tagline:</h4>
+                    <p>"Körper und Geist Unterstützung" — AM BELIEBTESTEN</p>
+                    <h4>Dauer:</h4>
+                    <p>6-8 Termine über 2-3 Monate</p>
+                    <h4>Umfasst:</h4>
+                    <ul>
+                        <li>Alle Programm 1 Elemente</li>
+                        <li>Psychologisch-philosophische Beratung (2-3 Sitzungen)</li>
+                        <li>Ernährungsberatung (1-2 Sitzungen)</li>
+                        <li>Kontinuierliche Überwachung</li>
+                    </ul>
+                    <h4>Versicherung:</h4>
+                    <p>~80-90% Erstattung durch private Versicherung</p>
+                </div>
+
+                <!-- Program 3 -->
+                <div class="section-card">
+                    <span class="section-label">PROGRAMM</span>
+                    <h3>Programm 3: Tiefgreifende Transformation</h3>
+                    <h4>Tagline:</h4>
+                    <p>"Komplette ganzheitliche Betreuung"</p>
+                    <h4>Dauer:</h4>
+                    <p>9+ Termine über 6 Monate</p>
+                    <h4>Umfasst:</h4>
+                    <ul>
+                        <li>Alle Programm 2 Elemente</li>
+                        <li>Erweiterte psychologische Unterstützung (5 Sitzungen)</li>
+                        <li>Infusionstherapie (6 Sitzungen)</li>
+                        <li>Kontinuierliche Betreuung (E-Mail & WhatsApp)</li>
+                    </ul>
+                    <h4>Versicherung:</h4>
+                    <p>~75% Erstattung durch private Versicherung</p>
+                </div>
+
+                <!-- Comparison Table -->
+                <div class="section-card">
+                    <span class="section-label">BEREICH</span>
+                    <h3>Vergleichstabelle</h3>
+                    <h4>Verglichene Merkmale:</h4>
+                    <ul>
+                        <li>Schwerpunkt (Körperlich vs Körper & Geist vs Komplett)</li>
+                        <li>Dauer (6-8 Wochen vs 2-3 Monate vs 6 Monate)</li>
+                        <li>Termine (3 vs 6-8 vs 9+)</li>
+                        <li>Enthaltene Leistungen (Häkchen und Striche)</li>
+                        <li>Versicherungserstattung in Prozent</li>
+                    </ul>
+                </div>
+
+                <!-- Decision Support -->
+                <div class="section-card">
+                    <span class="section-label">BEREICH</span>
+                    <h3>Entscheidungshilfe</h3>
+                    <h4>Titel:</h4>
+                    <p>"Nicht sicher, welches Programm das richtige für Sie ist?"</p>
+                    <h4>Inhalt:</h4>
+                    <p>Erklärung, dass die Wahl gemeinsam getroffen wird, Angebot für Beratungsgespräch</p>
+                    <h4>CTA:</h4>
+                    <p>Kontakt aufnehmen</p>
+                </div>
+
+                <!-- FAQ -->
+                <div class="section-card">
+                    <span class="section-label">BEREICH</span>
+                    <h3>FAQ-Bereich</h3>
+                    <h4>6 Fragen:</h4>
+                    <ul>
+                        <li>Wie wähle ich das richtige Programm?</li>
+                        <li>Kann ich bei Bedarf das Programm wechseln?</li>
+                        <li>Benötige ich eine Überweisung?</li>
+                        <li>Werden die Programme von der Versicherung übernommen?</li>
+                        <li>Wie lange dauern die Programme?</li>
+                        <li>Kann ich Programme online durchführen?</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- About Tab -->
+        <div id="about" class="tab-content">
+            <div class="page-sections">
+                <!-- Page Header -->
+                <div class="section-card">
+                    <span class="section-label">HEADER</span>
+                    <h3>Seiten-Header</h3>
+                    <h4>Titel:</h4>
+                    <p>"Über Dr. Christa Müller"</p>
+                    <h4>Untertitel:</h4>
+                    <p>Medizin als Begegnung - mit Zeit, Achtsamkeit und Empathie</p>
+                </div>
+
+                <!-- About Hero -->
+                <div class="section-card">
+                    <span class="section-label">BEREICH</span>
+                    <h3>Über-Hero — "Eine Partnerin auf Ihrem Gesundheitsweg"</h3>
+                    <h4>Layout:</h4>
+                    <p>Zwei Spalten: Bild-Platzhalter + Textinhalt</p>
+                    <h4>Hauptpunkte:</h4>
+                    <ul>
+                        <li>Spezialisierung auf Wechseljahre und Lebensmitte</li>
+                        <li>Ganzheitlicher Ansatz</li>
+                        <li>Betonung auf Zeit und Verständnis</li>
+                    </ul>
+                </div>
+
+                <!-- Credentials -->
+                <div class="section-card">
+                    <span class="section-label">BEREICH</span>
+                    <h3>Expertise & Qualifikationen</h3>
+                    <h4>6 Qualifikations-Karten:</h4>
+                    <ul>
+                        <li>Fachärztin für Gynäkologie</li>
+                        <li>Hormontherapie-Expertin</li>
+                        <li>Stoffwechselmedizin</li>
+                        <li>Anti-Aging & Kosmetik</li>
+                        <li>Psychosomatische Medizin</li>
+                        <li>Integrative Frauengesundheit</li>
+                    </ul>
+                    <div class="content-note">Jeweils mit Icon und kurzer Beschreibung</div>
+                </div>
+
+                <!-- Philosophy -->
+                <div class="section-card">
+                    <span class="section-label">BEREICH</span>
+                    <h3>Was Sie erwarten können</h3>
+                    <h4>6 Philosophie-Punkte:</h4>
+                    <ul>
+                        <li>Medizin, die den ganzen Menschen sieht</li>
+                        <li>Über die Symptombehandlung hinaus</li>
+                        <li>Zeit und Präsenz</li>
+                        <li>Von Frau zu Frau</li>
+                        <li>Empowerment durch Verständnis</li>
+                        <li>Brücke zwischen moderner Wissenschaft und ganzheitlicher Betreuung</li>
+                    </ul>
+                </div>
+
+                <!-- CTA -->
+                <div class="section-card">
+                    <span class="section-label">CTA</span>
+                    <h3>CTA-Bereich</h3>
+                    <h4>Überschrift:</h4>
+                    <p>"Ich freue mich darauf, Sie kennenzulernen"</p>
+                    <h4>Buttons:</h4>
+                    <ul>
+                        <li>Jetzt Termin buchen</li>
+                        <li>Programme entdecken</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Blog Tab -->
+        <div id="blog" class="tab-content">
+            <div class="page-sections">
+                <!-- Page Header -->
+                <div class="section-card">
+                    <span class="section-label">HEADER</span>
+                    <h3>Seiten-Header</h3>
+                    <h4>Titel:</h4>
+                    <p>"Einblicke & Ressourcen"</p>
+                    <h4>Untertitel:</h4>
+                    <p>Expertenperspektiven zu Wechseljahren, Hormonen und Frauengesundheit</p>
+                </div>
+
+                <!-- Featured Article -->
+                <div class="section-card">
+                    <span class="section-label">FEATURED</span>
+                    <h3>Hervorgehobener Artikel</h3>
+                    <h4>Layout:</h4>
+                    <p>Große Karte mit Icon/Bild, Kategorie-Badge, Überschrift, Auszug und CTA</p>
+                    <h4>Beispiel:</h4>
+                    <p>"Wechseljahre als Transformation: Eine neue Perspektive"</p>
+                    <div class="content-note">Kategorie: Wechseljahre | 7 Min. Lesezeit</div>
+                </div>
+
+                <!-- Filter Chips -->
+                <div class="section-card">
+                    <span class="section-label">FILTER</span>
+                    <h3>Kategorie-Filter</h3>
+                    <h4>Kategorien:</h4>
+                    <ul>
+                        <li>Alle Artikel (Standard aktiv)</li>
+                        <li>Wechseljahre</li>
+                        <li>Hormone</li>
+                        <li>Ernährung</li>
+                        <li>Lifestyle</li>
+                        <li>Mentale Gesundheit</li>
+                        <li>Gesundheit</li>
+                    </ul>
+                    <div class="content-note">Interaktive Filter-Chips mit JavaScript-Filterung</div>
+                </div>
+
+                <!-- Articles Grid -->
+                <div class="section-card">
+                    <span class="section-label">BEREICH</span>
+                    <h3>Artikel-Raster</h3>
+                    <h4>Layout:</h4>
+                    <p>3-Spalten-Raster (responsive: 2-Sp. Tablet, 1-Sp. Mobil)</p>
+                    <h4>Artikel-Karten-Komponenten:</h4>
+                    <ul>
+                        <li>Icon/Bild-Platzhalter</li>
+                        <li>Kategorie-Badge</li>
+                        <li>Artikeltitel</li>
+                        <li>Auszug</li>
+                        <li>Lesezeit + Weiterlesen-Link</li>
+                    </ul>
+                    <h4>Beispielartikel:</h4>
+                    <ul>
+                        <li>Die drei Phasen der Wechseljahre verstehen</li>
+                        <li>Warum hormonelle Balance wichtig ist</li>
+                        <li>Schlaf und Wechseljahre</li>
+                        <li>Und mehr...</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Tab -->
+        <div id="contact" class="tab-content">
+            <div class="page-sections">
+                <!-- Introduction -->
+                <div class="section-card">
+                    <span class="section-label">INTRO</span>
+                    <h3>Kontakt-Einführung</h3>
+                    <h4>Überschrift:</h4>
+                    <p>"Lassen Sie uns in Kontakt treten"</p>
+                    <h4>Subtext:</h4>
+                    <p>Ob Sie bereit sind zu buchen, Fragen haben oder mehr erfahren möchten - ich bin für Sie da.</p>
+                </div>
+
+                <!-- Booking Options -->
+                <div class="section-card">
+                    <span class="section-label">BEREICH</span>
+                    <h3>Buchungsoptionen</h3>
+                    <h4>2 Buchungskarten:</h4>
+                    <ul>
+                        <li>Online-Buchung (Doctolib) - Sofortige Buchung mit verfügbaren Zeiten</li>
+                        <li>Traditioneller Kontakt - Telefon/E-Mail für Fragen oder Präferenz</li>
+                    </ul>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="section-card">
+                    <span class="section-label">FORMULAR</span>
+                    <h3>Kontaktformular</h3>
+                    <h4>Felder:</h4>
+                    <ul>
+                        <li>Name (erforderlich)</li>
+                        <li>E-Mail (erforderlich)</li>
+                        <li>Telefon (optional)</li>
+                        <li>Betreff</li>
+                        <li>Nachricht (erforderlich)</li>
+                    </ul>
+                    <h4>Absende-Button:</h4>
+                    <p>Nachricht senden</p>
+                </div>
+
+                <!-- Practice Info -->
+                <div class="section-card">
+                    <span class="section-label">INFO</span>
+                    <h3>Praxisinformationen</h3>
+                    <h4>Details:</h4>
+                    <ul>
+                        <li>Adresse: München-Trudering</li>
+                        <li>Telefon: +49 [Nummer]</li>
+                        <li>E-Mail: info@example.com</li>
+                        <li>Sprechzeiten: Aufgelistete Praxiszeiten</li>
+                    </ul>
+                </div>
+
+                <!-- Map -->
+                <div class="section-card">
+                    <span class="section-label">KARTE</span>
+                    <h3>Standortkarte</h3>
+                    <p>Interaktive Karte mit Praxisstandort</p>
+                    <div class="content-note">Derzeit Platzhalter - wird Google Maps oder ähnliches integrieren</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Back Link -->
+        <div class="back-link">
+            <a href="index.html">← Zurück zur Startseite</a>
+        </div>
+    </div>
+
+    <script>
+        function openTab(evt, tabName) {
+            // Hide all tab content
+            var tabcontent = document.getElementsByClassName("tab-content");
+            for (var i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+
+            // Remove active class from all buttons
+            var tabbtns = document.getElementsByClassName("tab-btn");
+            for (var i = 0; i < tabbtns.length; i++) {
+                tabbtns[i].classList.remove("active");
+            }
+
+            // Show current tab and add active class to button
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
+</body>
+</html>
