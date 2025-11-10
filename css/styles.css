@@ -1784,6 +1784,114 @@ h4 { font-size: 1.5rem; }
 }
 
 /* ========================================
+   Blog Preview Section (Homepage)
+   ======================================== */
+
+.blog-preview-section {
+    padding: var(--spacing-xl) 0;
+    background: var(--bg-lighter);
+}
+
+.blog-preview-header {
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+}
+
+.blog-label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-medium);
+    margin-bottom: var(--spacing-xs);
+}
+
+.blog-preview-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+}
+
+.blog-preview-card {
+    background: var(--bg-white);
+    border-radius: 15px;
+    overflow: hidden;
+    transition: var(--transition-base);
+}
+
+.blog-preview-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+}
+
+.blog-preview-image {
+    background: var(--bg-medium);
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.blog-preview-image i {
+    font-size: 3rem;
+    color: var(--primary-color);
+}
+
+.blog-preview-content {
+    padding: var(--spacing-md);
+}
+
+.blog-category {
+    display: inline-block;
+    padding: 0.25rem 1rem;
+    background: var(--primary-light);
+    color: var(--primary-dark);
+    border-radius: 20px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin-bottom: var(--spacing-xs);
+}
+
+.blog-preview-content h3 {
+    font-size: 1.25rem;
+    margin-bottom: var(--spacing-sm);
+    line-height: 1.4;
+}
+
+.blog-preview-content p {
+    color: var(--text-medium);
+    line-height: 1.7;
+}
+
+.blog-preview-content .article-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+    color: var(--text-light);
+    padding-top: var(--spacing-sm);
+    border-top: 1px solid var(--border-color);
+    margin-top: var(--spacing-sm);
+}
+
+.blog-preview-cta {
+    text-align: center;
+}
+
+@media (max-width: 992px) {
+    .blog-preview-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 640px) {
+    .blog-preview-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ========================================
    Blog Page Specific
    ======================================== */
 

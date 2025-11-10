@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Wireframe sitemap for Dr. Christa Müller's menopause care practice.">
+    <title>Site Map - Dr. Christa Müller</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: #e8e8e8;
+            padding: 0;
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .sitemap-container {
+            max-width: 1600px;
+            margin: 0 auto;
+            background: white;
+        }
+
+        .sitemap-header {
+            text-align: center;
+            padding: 2rem;
+            background: white;
+            border-bottom: 2px solid #000;
+        }
+
+        .sitemap-header h1 {
+            font-size: 1.5rem;
+            margin: 0 0 0.5rem 0;
+        }
+
+        .sitemap-header p {
+            color: #666;
+            margin: 0;
+            font-size: 0.9rem;
+        }
+
+        /* Tab Navigation */
+        .tab-navigation {
+            display: flex;
+            border-bottom: 2px solid #000;
+            background: white;
+        }
+
+        .tab-btn {
+            flex: 1;
+            padding: 1rem 2rem;
+            background: #f5f5f5;
+            border: none;
+            border-right: 2px solid #000;
+            border-bottom: 2px solid #000;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            font-family: 'Inter', sans-serif;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .tab-btn:last-child {
+            border-right: none;
+        }
+
+        .tab-btn:hover {
+            background: #e8e8e8;
+        }
+
+        .tab-btn.active {
+            background: #000;
+            color: white;
+            border-bottom: 2px solid #000;
+        }
+
+        .tab-btn::before {
+            content: '📄';
+        }
+
+        /* Tab Content */
+        .tab-content {
+            display: none;
+            padding: 2rem;
+            background: #f5f5f5;
+            min-height: 70vh;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .page-sections {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 1.5rem;
+        }
+
+        /* Section Card */
+        .section-card {
+            background: white;
+            border: 2px solid #000;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 4px 4px 0 rgba(0,0,0,0.1);
+        }
+
+        .section-card h3 {
+            margin: 0 0 1rem 0;
+            font-size: 1.1rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid #000;
+        }
+
+        .section-card h4 {
+            margin: 1rem 0 0.5rem 0;
+            font-size: 0.95rem;
+            color: #d35400;
+        }
+
+        .section-card p {
+            margin: 0.5rem 0;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            color: #333;
+        }
+
+        .section-card ul {
+            margin: 0.5rem 0;
+            padding-left: 1.25rem;
+        }
+
+        .section-card li {
+            font-size: 0.85rem;
+            line-height: 1.6;
+            margin: 0.25rem 0;
+        }
+
+        .section-label {
+            display: inline-block;
+            background: #000;
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .content-note {
+            background: #fff9e6;
+            border-left: 3px solid #d35400;
+            padding: 0.75rem;
+            margin: 0.75rem 0;
+            font-size: 0.85rem;
+        }
+
+        .back-link {
+            text-align: center;
+            padding: 2rem;
+            background: white;
+            border-top: 2px solid #000;
+        }
+
+        .back-link a {
+            color: #000;
+            text-decoration: none;
+            padding: 0.75rem 1.5rem;
+            border: 2px solid #000;
+            border-radius: 8px;
+            display: inline-block;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .back-link a:hover {
+            background: #000;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .tab-btn {
+                padding: 0.75rem 1rem;
+                font-size: 0.85rem;
+            }
+
+            .page-sections {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="sitemap-container">
+        <div class="sitemap-header">
+            <h1>Website Sitemap & Component Breakdown</h1>
+            <p>Dr. Christa Müller — Gynecology & Menopause Care</p>
+        </div>
+
+        <!-- Tab Navigation -->
+        <div class="tab-navigation">
+            <button class="tab-btn active" onclick="openTab(event, 'home')">Home</button>
+            <button class="tab-btn" onclick="openTab(event, 'services')">Services</button>
+            <button class="tab-btn" onclick="openTab(event, 'programs')">Programs</button>
+            <button class="tab-btn" onclick="openTab(event, 'about')">About</button>
+            <button class="tab-btn" onclick="openTab(event, 'blog')">Blog</button>
+            <button class="tab-btn" onclick="openTab(event, 'contact')">Contact</button>
+        </div>
+
+        <!-- Home Tab -->
+        <div id="home" class="tab-content active">
+            <div class="page-sections">
+                <!-- Navigation -->
+                <div class="section-card">
+                    <span class="section-label">GLOBAL</span>
+                    <h3>Navigation</h3>
+                    <p><strong>Logo:</strong> Dr. Müller | Gynäkologie & Menopause</p>
+                    <h4>Navigation Links:</h4>
+                    <p>Home | Services | Programs | About | Blog | Contact</p>
+                    <h4>CTA Button:</h4>
+                    <p>Book Now (primary button)</p>
+                    <h4>Features:</h4>
+                    <ul>
+                        <li>Responsive mobile menu</li>
+                        <li>Sticky navigation on scroll</li>
+                    </ul>
+                </div>
+
+                <!-- Hero Section -->
+                <div class="section-card">
+                    <span class="section-label">HERO</span>
+                    <h3>Hero Section</h3>
+                    <h4>Headline:</h4>
+                    <p>"Rediscover Yourself During Menopause"</p>
+                    <h4>Subheading:</h4>
+                    <p>Specialized care combining medical expertise with holistic support - from woman to woman</p>
+                    <h4>Description:</h4>
+                    <p>More than symptom relief—care that understands the physical, emotional, and existential layers of menopause.</p>
+                    <h4>CTAs:</h4>
+                    <ul>
+                        <li>Book Now (primary)</li>
+                        <li>From Symptom to Solution (secondary)</li>
+                    </ul>
+                    <div class="content-note">Background image with overlay for text readability</div>
+                </div>
+
+                <!-- Problem Section -->
+                <div class="section-card">
+                    <span class="section-label">SECTION</span>
+                    <h3>Problem Section — "Main Challenges"</h3>
+                    <h4>Title:</h4>
+                    <p>"The Main Challenges Women Face During Menopause"</p>
+                    <h4>3 Problem Cards:</h4>
+                    <ul>
+                        <li>Physical Symptoms That Disrupt Your Life</li>
+                        <li>Emotional & Psychological Struggles</li>
+                        <li>Lack of Understanding & Support</li>
+                    </ul>
+                    <div class="content-note">Each card has icon, heading, and description</div>
+                </div>
+
+                <!-- Solution Section -->
+                <div class="section-card">
+                    <span class="section-label">SECTION</span>
+                    <h3>Solution Section — "How We Solve"</h3>
+                    <h4>Title:</h4>
+                    <p>"How We Solve These Challenges"</p>
+                    <h4>3 Solution Cards:</h4>
+                    <ul>
+                        <li>Comprehensive Medical Approach</li>
+                        <li>Holistic Support (featured)</li>
+                        <li>Personalized Journey-Based Care</li>
+                    </ul>
+                    <h4>CTA Box:</h4>
+                    <p>"What Makes Dr. Müller's Approach Different?" → Learn More About Our Approach</p>
+                </div>
+
+                <!-- Services Overview -->
+                <div class="section-card">
+                    <span class="section-label">SECTION</span>
+                    <h3>Services Overview</h3>
+                    <h4>Title:</h4>
+                    <p>"Comprehensive Care for Your Well-being"</p>
+                    <h4>6 Service Cards:</h4>
+                    <ul>
+                        <li>Hormone Therapy</li>
+                        <li>Psychological Support</li>
+                        <li>Nutritional Counseling</li>
+                        <li>Infusion Therapy</li>
+                        <li>Microbiome Diagnostics</li>
+                        <li>Weight Management</li>
+                    </ul>
+                    <h4>CTA:</h4>
+                    <p>Explore All Services</p>
+                </div>
+
+                <!-- Programs Preview -->
+                <div class="section-card">
+                    <span class="section-label">SECTION</span>
+                    <h3>Programs Preview</h3>
+                    <h4>Title:</h4>
+                    <p>"Personalized Programs for Your Journey"</p>
+                    <h4>3 Program Cards:</h4>
+                    <ul>
+                        <li>Program 1: Breathe a Sigh of Relief (3 appointments)</li>
+                        <li>Program 2: Shining... Your Strong Tomorrow (6-8 appointments, MOST POPULAR)</li>
+                        <li>Program 3: Deep Transformation (9+ appointments over 6 months)</li>
+                    </ul>
+                    <h4>Bottom CTA:</h4>
+                    <p>"Not sure which program is right for you?" → We Decide Together</p>
+                </div>
+
+                <!-- Approach Section -->
+                <div class="section-card">
+                    <span class="section-label">SECTION</span>
+                    <h3>Approach — "What This Means for You"</h3>
+                    <h4>6 Benefit Cards:</h4>
+                    <ul>
+                        <li>No More Rushing</li>
+                        <li>This Can Be Your Best Chapter</li>
+                        <li>Care That Fits Your Life</li>
+                        <li>Treat the Real You</li>
+                        <li>Be the Boss of Your Treatment</li>
+                        <li>Experience You Can Trust</li>
+                    </ul>
+                    <div class="content-note">Grid layout, short punchy headlines with concise descriptions</div>
+                </div>
+
+                <!-- Philosophy Quote -->
+                <div class="section-card">
+                    <span class="section-label">SECTION</span>
+                    <h3>Philosophy Statement</h3>
+                    <h4>Quote:</h4>
+                    <p>"You're not 'difficult' or 'too sensitive.' You're going through something profound that deserves time and understanding."</p>
+                    <p><em>- Dr. Christa Müller</em></p>
+                    <div class="content-note">Large blockquote format, centered</div>
+                </div>
+
+                <!-- Blog Preview -->
+                <div class="section-card">
+                    <span class="section-label">SECTION</span>
+                    <h3>Blog Preview</h3>
+                    <h4>Title:</h4>
+                    <p>"Learn about menopause"</p>
+                    <h4>3 Blog Cards:</h4>
+                    <ul>
+                        <li>Menopause myths and facts revealed</li>
+                        <li>Bioidentical hormones explained</li>
+                        <li>Nutrition for hormonal balance</li>
+                    </ul>
+                    <h4>CTA:</h4>
+                    <p>View all → Blog page</p>
+                </div>
+
+                <!-- Final CTA -->
+                <div class="section-card">
+                    <span class="section-label">CTA</span>
+                    <h3>Final CTA Section</h3>
+                    <h4>Headline:</h4>
+                    <p>"Ready to Take the Next Step?"</p>
+                    <h4>Subtext:</h4>
+                    <p>Let's bring back energy, clarity, and confidence—together.</p>
+                    <h4>Buttons:</h4>
+                    <ul>
+                        <li>Book Now (primary large)</li>
+                        <li>Explore Programs (secondary large)</li>
+                    </ul>
+                </div>
+
+                <!-- Footer -->
+                <div class="section-card">
+                    <span class="section-label">GLOBAL</span>
+                    <h3>Footer</h3>
+                    <h4>4 Columns:</h4>
+                    <ul>
+                        <li>Practice Info (name, location, tagline)</li>
+                        <li>Quick Links (Services, Programs, About, Blog)</li>
+                        <li>Contact (Book Now, Phone, Email)</li>
+                        <li>Legal (Privacy Policy, Imprint, Terms)</li>
+                    </ul>
+                    <h4>Copyright:</h4>
+                    <p>© 2025 Dr. Christa Müller. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Services Tab -->
+        <div id="services" class="tab-content">
+            <div class="page-sections">
+                <!-- Page Header -->
+                <div class="section-card">
+                    <span class="section-label">HEADER</span>
+                    <h3>Page Header</h3>
+                    <h4>Title:</h4>
+                    <p>"Our Services"</p>
+                    <h4>Subtitle:</h4>
+                    <p>Every woman's journey is unique. That's why I offer individualized treatment programs that address not just your symptoms, but your whole self.</p>
+                </div>
+
+                <!-- Core Services -->
+                <div class="section-card">
+                    <span class="section-label">SECTION</span>
+                    <h3>Specialized Menopause Care</h3>
+                    <h4>7 Service Cards (detailed):</h4>
+                    <ul>
+                        <li>Bioidentical Hormone Therapy</li>
+                        <li>Psychological-Philosophical Counseling</li>
+                        <li>Nutritional Counseling</li>
+                        <li>Infusion Therapy</li>
+                        <li>Microbiome Diagnostics</li>
+                        <li>Weight Management</li>
+                        <li>Hormone-Based Cosmetics</li>
+                    </ul>
+                    <div class="content-note">Each card includes icon, title, highlight, description, and 4 bullet points</div>
+                </div>
+
+                <!-- General Services -->
+                <div class="section-card">
+                    <span class="section-label">SECTION</span>
+                    <h3>Comprehensive Gynecological Care</h3>
+                    <h4>6 Service Items:</h4>
+                    <ul>
+                        <li>Preventive Care</li>
+                        <li>Contraception Counseling</li>
+                        <li>Pregnancy Care</li>
+                        <li>Menstrual Issues</li>
+                        <li>Gynecological Examinations</li>
+                        <li>Health Consultations</li>
+                    </ul>
+                </div>
+
+                <!-- Approach -->
+                <div class="section-card">
+                    <span class="section-label">SECTION</span>
+                    <h3>My Approach to Care</h3>
+                    <h4>4 Steps:</h4>
+                    <ul>
+                        <li>01 - Listen & Understand</li>
+                        <li>02 - Comprehensive Assessment</li>
+                        <li>03 - Collaborative Planning</li>
+                        <li>04 - Ongoing Support</li>
+                    </ul>
+                </div>
+
+                <!-- Insurance -->
+                <div class="section-card">
+                    <span class="section-label">SECTION</span>
+                    <h3>Understanding Costs & Insurance</h3>
+                    <h4>3 Info Boxes:</h4>
+                    <ul>
+                        <li>Private Health Insurance (75-90% coverage)</li>
+                        <li>Laboratory Costs (billed separately)</li>
+                        <li>Online Sessions & Programs (PayPal payment)</li>
+                    </ul>
+                </div>
+
+                <!-- FAQ -->
+                <div class="section-card">
+                    <span class="section-label">SECTION</span>
+                    <h3>Frequently Asked Questions</h3>
+                    <h4>6 FAQ Items:</h4>
+                    <ul>
+                        <li>Do I need a referral?</li>
+                        <li>How long are appointments?</li>
+                        <li>What should I bring?</li>
+                        <li>Do you accept private insurance?</li>
+                        <li>Can I book online consultations?</li>
+                        <li>What languages do you speak?</li>
+                    </ul>
+                    <h4>CTA:</h4>
+                    <p>Still have questions? → Contact Us</p>
+                </div>
+
+                <!-- CTA -->
+                <div class="section-card">
+                    <span class="section-label">CTA</span>
+                    <h3>CTA Section</h3>
+                    <h4>Headline:</h4>
+                    <p>"Ready to Begin Your Journey?"</p>
+                    <h4>Buttons:</h4>
+                    <ul>
+                        <li>Explore Our Programs</li>
+                        <li>Book Now</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Programs Tab -->
+        <div id="programs" class="tab-content">
+            <div class="page-sections">
+                <!-- Page Header -->
+                <div class="section-card">
+                    <span class="section-label">HEADER</span>
+                    <h3>Page Header</h3>
+                    <h4>Title:</h4>
+                    <p>"Menopause Care Programs"</p>
+                    <h4>Subtitle:</h4>
+                    <p>Every woman's experience is unique. Three distinct program levels to meet you where you are.</p>
+                </div>
+
+                <!-- Program 1 -->
+                <div class="section-card">
+                    <span class="section-label">PROGRAM</span>
+                    <h3>Program 1: Breathe a Sigh of Relief</h3>
+                    <h4>Tagline:</h4>
+                    <p>"There is Hope" — Immediate relief for physical symptoms</p>
+                    <h4>Duration:</h4>
+                    <p>3 appointments over 6-8 weeks</p>
+                    <h4>Includes:</h4>
+                    <ul>
+                        <li>Initial consultation (60-90 min)</li>
+                        <li>Diagnostic testing & hormone therapy</li>
+                        <li>Follow-up evaluation</li>
+                    </ul>
+                    <h4>Insurance:</h4>
+                    <p>~90% coverage by private insurance</p>
+                </div>
+
+                <!-- Program 2 -->
+                <div class="section-card">
+                    <span class="section-label">PROGRAM ⭐</span>
+                    <h3>Program 2: Shining... Your Strong Tomorrow</h3>
+                    <h4>Tagline:</h4>
+                    <p>"Body and mind support" — MOST POPULAR</p>
+                    <h4>Duration:</h4>
+                    <p>6-8 appointments over 2-3 months</p>
+                    <h4>Includes:</h4>
+                    <ul>
+                        <li>All Program 1 elements</li>
+                        <li>Psychological-philosophical counseling (2-3 sessions)</li>
+                        <li>Nutritional counseling (1-2 sessions)</li>
+                        <li>Ongoing monitoring</li>
+                    </ul>
+                    <h4>Insurance:</h4>
+                    <p>~80-90% coverage by private insurance</p>
+                </div>
+
+                <!-- Program 3 -->
+                <div class="section-card">
+                    <span class="section-label">PROGRAM</span>
+                    <h3>Program 3: Deep Transformation</h3>
+                    <h4>Tagline:</h4>
+                    <p>"Complete holistic care"</p>
+                    <h4>Duration:</h4>
+                    <p>9+ appointments over 6 months</p>
+                    <h4>Includes:</h4>
+                    <ul>
+                        <li>All Program 2 elements</li>
+                        <li>Extended psychological support (5 sessions)</li>
+                        <li>Infusion therapy (6 sessions)</li>
+                        <li>Continuous support (Email & WhatsApp)</li>
+                    </ul>
+                    <h4>Insurance:</h4>
+                    <p>~75% coverage by private insurance</p>
+                </div>
+
+                <!-- Comparison Table -->
+                <div class="section-card">
+                    <span class="section-label">SECTION</span>
+                    <h3>Comparison Table</h3>
+                    <h4>Features Compared:</h4>
+                    <ul>
+                        <li>Focus (Physical vs Body & Mind vs Complete)</li>
+                        <li>Duration (6-8 weeks vs 2-3 months vs 6 months)</li>
+                        <li>Appointments (3 vs 6-8 vs 9+)</li>
+                        <li>Services included (checkmarks and dashes)</li>
+                        <li>Insurance coverage percentages</li>
+                    </ul>
+                </div>
+
+                <!-- Decision Support -->
+                <div class="section-card">
+                    <span class="section-label">SECTION</span>
+                    <h3>Decision Support</h3>
+                    <h4>Title:</h4>
+                    <p>"Not Sure Which Program is Right for You?"</p>
+                    <h4>Content:</h4>
+                    <p>Explanation that choosing is done together, offer for consultation call</p>
+                    <h4>CTA:</h4>
+                    <p>Contact Us</p>
+                </div>
+
+                <!-- FAQ -->
+                <div class="section-card">
+                    <span class="section-label">SECTION</span>
+                    <h3>FAQ Section</h3>
+                    <h4>6 Questions:</h4>
+                    <ul>
+                        <li>How do I choose the right program?</li>
+                        <li>Can I switch programs if needed?</li>
+                        <li>Do I need a referral?</li>
+                        <li>Are programs covered by insurance?</li>
+                        <li>How long do the programs take?</li>
+                        <li>Can I do programs online?</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- About Tab -->
+        <div id="about" class="tab-content">
+            <div class="page-sections">
+                <!-- Page Header -->
+                <div class="section-card">
+                    <span class="section-label">HEADER</span>
+                    <h3>Page Header</h3>
+                    <h4>Title:</h4>
+                    <p>"About Dr. Christa Müller"</p>
+                    <h4>Subtitle:</h4>
+                    <p>Medicine as an encounter - with time, mindfulness, and empathy</p>
+                </div>
+
+                <!-- About Hero -->
+                <div class="section-card">
+                    <span class="section-label">SECTION</span>
+                    <h3>About Hero — "A Partner in Your Health Journey"</h3>
+                    <h4>Layout:</h4>
+                    <p>Two-column: Image placeholder + Text content</p>
+                    <h4>Key Points:</h4>
+                    <ul>
+                        <li>Specialization in menopause and midlife</li>
+                        <li>Whole-person approach</li>
+                        <li>Emphasis on time and understanding</li>
+                    </ul>
+                </div>
+
+                <!-- Credentials -->
+                <div class="section-card">
+                    <span class="section-label">SECTION</span>
+                    <h3>Expertise & Qualifications</h3>
+                    <h4>6 Credential Cards:</h4>
+                    <ul>
+                        <li>Gynecology Specialist</li>
+                        <li>Hormone Therapy Expert</li>
+                        <li>Metabolic Medicine</li>
+                        <li>Anti-Aging & Cosmetics</li>
+                        <li>Psychosomatic Medicine</li>
+                        <li>Integrative Women's Health</li>
+                    </ul>
+                    <div class="content-note">Each with icon and brief description</div>
+                </div>
+
+                <!-- Philosophy -->
+                <div class="section-card">
+                    <span class="section-label">SECTION</span>
+                    <h3>What You Can Expect</h3>
+                    <h4>6 Philosophy Points:</h4>
+                    <ul>
+                        <li>Medicine That Sees the Whole Person</li>
+                        <li>Beyond Treating Symptoms</li>
+                        <li>Time and Presence</li>
+                        <li>Woman to Woman</li>
+                        <li>Empowerment Through Understanding</li>
+                        <li>Bridging Modern Science and Holistic Care</li>
+                    </ul>
+                </div>
+
+                <!-- CTA -->
+                <div class="section-card">
+                    <span class="section-label">CTA</span>
+                    <h3>CTA Section</h3>
+                    <h4>Headline:</h4>
+                    <p>"I Look Forward to Meeting You"</p>
+                    <h4>Buttons:</h4>
+                    <ul>
+                        <li>Book Now</li>
+                        <li>Explore Programs</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Blog Tab -->
+        <div id="blog" class="tab-content">
+            <div class="page-sections">
+                <!-- Page Header -->
+                <div class="section-card">
+                    <span class="section-label">HEADER</span>
+                    <h3>Page Header</h3>
+                    <h4>Title:</h4>
+                    <p>"Insights & Resources"</p>
+                    <h4>Subtitle:</h4>
+                    <p>Expert perspectives on menopause, hormones, and women's health</p>
+                </div>
+
+                <!-- Featured Article -->
+                <div class="section-card">
+                    <span class="section-label">FEATURED</span>
+                    <h3>Featured Article</h3>
+                    <h4>Layout:</h4>
+                    <p>Large card with icon/image, category badge, headline, excerpt, and CTA</p>
+                    <h4>Example:</h4>
+                    <p>"Menopause as Transformation: A New Perspective"</p>
+                    <div class="content-note">Category: Menopause | 7 min read</div>
+                </div>
+
+                <!-- Filter Chips -->
+                <div class="section-card">
+                    <span class="section-label">FILTER</span>
+                    <h3>Category Filters</h3>
+                    <h4>Categories:</h4>
+                    <ul>
+                        <li>All Articles (default active)</li>
+                        <li>Menopause</li>
+                        <li>Hormones</li>
+                        <li>Nutrition</li>
+                        <li>Lifestyle</li>
+                        <li>Mental Health</li>
+                        <li>Health</li>
+                    </ul>
+                    <div class="content-note">Interactive filter chips with JavaScript filtering</div>
+                </div>
+
+                <!-- Articles Grid -->
+                <div class="section-card">
+                    <span class="section-label">SECTION</span>
+                    <h3>Articles Grid</h3>
+                    <h4>Layout:</h4>
+                    <p>3-column grid (responsive: 2-col tablet, 1-col mobile)</p>
+                    <h4>Article Card Components:</h4>
+                    <ul>
+                        <li>Icon/image placeholder</li>
+                        <li>Category badge</li>
+                        <li>Article title</li>
+                        <li>Excerpt</li>
+                        <li>Read time + Read More link</li>
+                    </ul>
+                    <h4>Sample Articles:</h4>
+                    <ul>
+                        <li>Understanding the Three Stages of Menopause</li>
+                        <li>Why Hormone Balance Matters</li>
+                        <li>Sleep and Menopause</li>
+                        <li>And more...</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Tab -->
+        <div id="contact" class="tab-content">
+            <div class="page-sections">
+                <!-- Introduction -->
+                <div class="section-card">
+                    <span class="section-label">INTRO</span>
+                    <h3>Contact Introduction</h3>
+                    <h4>Headline:</h4>
+                    <p>"Let's Connect"</p>
+                    <h4>Subtext:</h4>
+                    <p>Whether you're ready to book, have questions, or want to learn more, I'm here to help.</p>
+                </div>
+
+                <!-- Booking Options -->
+                <div class="section-card">
+                    <span class="section-label">SECTION</span>
+                    <h3>Booking Options</h3>
+                    <h4>2 Booking Cards:</h4>
+                    <ul>
+                        <li>Online Booking (Doctolib) - Instant booking with available times</li>
+                        <li>Traditional Contact - Phone/email for questions or preference</li>
+                    </ul>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="section-card">
+                    <span class="section-label">FORM</span>
+                    <h3>Contact Form</h3>
+                    <h4>Fields:</h4>
+                    <ul>
+                        <li>Name (required)</li>
+                        <li>Email (required)</li>
+                        <li>Phone (optional)</li>
+                        <li>Subject</li>
+                        <li>Message (required)</li>
+                    </ul>
+                    <h4>Submit Button:</h4>
+                    <p>Send Message</p>
+                </div>
+
+                <!-- Practice Info -->
+                <div class="section-card">
+                    <span class="section-label">INFO</span>
+                    <h3>Practice Information</h3>
+                    <h4>Details:</h4>
+                    <ul>
+                        <li>Address: Munich-Trudering</li>
+                        <li>Phone: +49 [number]</li>
+                        <li>Email: info@example.com</li>
+                        <li>Hours: Practice hours listed</li>
+                    </ul>
+                </div>
+
+                <!-- Map -->
+                <div class="section-card">
+                    <span class="section-label">MAP</span>
+                    <h3>Location Map</h3>
+                    <p>Interactive map showing practice location</p>
+                    <div class="content-note">Currently placeholder - will integrate Google Maps or similar</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Back Link -->
+        <div class="back-link">
+            <a href="index.html">← Back to Home</a>
+        </div>
+    </div>
+
+    <script>
+        function openTab(evt, tabName) {
+            // Hide all tab content
+            var tabcontent = document.getElementsByClassName("tab-content");
+            for (var i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+
+            // Remove active class from all buttons
+            var tabbtns = document.getElementsByClassName("tab-btn");
+            for (var i = 0; i < tabbtns.length; i++) {
+                tabbtns[i].classList.remove("active");
+            }
+
+            // Show current tab and add active class to button
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
+</body>
+</html>
