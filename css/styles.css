@@ -1119,7 +1119,7 @@ h4 { font-size: 1.5rem; }
    Responsive Design
    ======================================== */
 
-@media (max-width: 968px) {
+@media (max-width: 1024px) {
     .intro-grid {
         grid-template-columns: 1fr;
     }
@@ -1162,6 +1162,10 @@ h4 { font-size: 1.5rem; }
 
     .decision-content {
         grid-template-columns: 1fr;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr !important;
     }
 }
 
@@ -1252,7 +1256,7 @@ h4 { font-size: 1.5rem; }
 
     /* Fix contact grid */
     .contact-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr !important;
     }
 
     /* About hero content */
@@ -1336,6 +1340,12 @@ h4 { font-size: 1.5rem; }
     .insurance-content {
         grid-template-columns: 1fr;
     }
+
+    /* Contact sections - reduce padding on mobile */
+    .contact-info,
+    .contact-form {
+        padding: var(--spacing-md);
+    }
 }
 
 @media (max-width: 480px) {
@@ -1389,6 +1399,17 @@ h4 { font-size: 1.5rem; }
     .btn-secondary-large {
         font-size: 0.95rem;
         padding: 0.75rem 1.25rem;
+    }
+
+    /* Further reduce contact section padding on small screens */
+    .contact-info,
+    .contact-form {
+        padding: var(--spacing-sm);
+    }
+
+    /* Stats grid - single column on small screens */
+    .stats-grid {
+        grid-template-columns: 1fr;
     }
 }
 
