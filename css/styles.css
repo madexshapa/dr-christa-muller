@@ -1153,7 +1153,7 @@ h4 { font-size: 1.5rem; }
     }
 
     .program-detail-content {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr !important;
     }
 
     .approach-content {
@@ -1259,9 +1259,14 @@ h4 { font-size: 1.5rem; }
         grid-template-columns: 1fr !important;
     }
 
+    /* Fix program detail content grid */
+    .program-detail-content {
+        grid-template-columns: 1fr !important;
+    }
+
     /* About hero content */
     .about-hero-content {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr !important;
     }
 
     /* Stats grid - 2 columns on tablet */
@@ -1304,6 +1309,31 @@ h4 { font-size: 1.5rem; }
         display: block;
         overflow-x: auto;
         -webkit-overflow-scrolling: touch;
+        margin: 0 -1.5rem;
+        padding: 0 1.5rem;
+    }
+
+    .comparison-table table {
+        min-width: 700px;
+    }
+
+    .comparison-table th,
+    .comparison-table td {
+        padding: var(--spacing-sm) 0.75rem;
+        white-space: nowrap;
+    }
+
+    .comparison-table th:first-child,
+    .comparison-table td:first-child {
+        position: sticky;
+        left: 0;
+        background: var(--bg-white);
+        z-index: 1;
+        min-width: 120px;
+    }
+
+    .comparison-table th:first-child {
+        background: var(--primary-light);
     }
 
     /* Form inputs larger for mobile (prevents zoom on iOS) */
@@ -1410,6 +1440,23 @@ h4 { font-size: 1.5rem; }
     /* Stats grid - single column on small screens */
     .stats-grid {
         grid-template-columns: 1fr;
+    }
+
+    /* Adjust comparison table for very small screens */
+    .comparison-table {
+        margin: 0 -1rem;
+        padding: 0 1rem;
+    }
+
+    .comparison-table th,
+    .comparison-table td {
+        padding: 0.5rem;
+        font-size: 0.875rem;
+    }
+
+    .comparison-table th:first-child,
+    .comparison-table td:first-child {
+        min-width: 100px;
     }
 }
 
@@ -1669,6 +1716,7 @@ h4 { font-size: 1.5rem; }
 .comparison-table {
     overflow-x: auto;
     margin-top: var(--spacing-lg);
+    position: relative;
 }
 
 .comparison-table table {
@@ -1677,6 +1725,19 @@ h4 { font-size: 1.5rem; }
     border-radius: 15px;
     overflow: hidden;
     box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+}
+
+/* Scroll hint for mobile */
+@media (max-width: 768px) {
+    .comparison-table::after {
+        content: '← Scroll to see more →';
+        display: block;
+        text-align: center;
+        font-size: 0.75rem;
+        color: var(--text-light);
+        margin-top: 0.5rem;
+        font-style: italic;
+    }
 }
 
 .comparison-table th,
