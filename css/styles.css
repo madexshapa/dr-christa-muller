@@ -218,6 +218,37 @@ h4 { font-size: 1.5rem; }
     transition: var(--transition-base);
 }
 
+/* Language Switcher */
+.lang-switcher {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-left: 1rem;
+    padding-left: 1rem;
+    border-left: 1px solid var(--border-color);
+}
+
+.lang-switcher a {
+    color: var(--text-medium);
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 0.25rem 0.5rem;
+    transition: var(--transition-base);
+}
+
+.lang-switcher a:hover,
+.lang-switcher a.active {
+    color: var(--primary-color);
+}
+
+.lang-switcher a::after {
+    display: none;
+}
+
+.lang-divider {
+    color: var(--border-color);
+}
+
 /* ========================================
    Buttons
    ======================================== */
